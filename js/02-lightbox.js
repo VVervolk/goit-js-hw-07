@@ -21,14 +21,14 @@ gallery.addEventListener('click', openBigImage);
 
 function openBigImage(evt) {
   evt.preventDefault();
+
   if (evt.target.nodeName !== 'IMG') {
     return;
   }
 
   let bigImageModal = new SimpleLightbox('.gallery a', {
-    captionSelector() {
-      console.log(evt);
-    },
+    captionsData: 'alt',
+    captionDelay: '250',
   });
 
   bigImageModal.on('show.simplelightbox', function () {
